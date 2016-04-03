@@ -58,7 +58,6 @@ class Application(tk.Frame):
         except Exception,e:
             self.search_label.configure(text="Internet Connection Error")
         data = uh.read().decode('utf-8')
-        print ('Retrieved',len(data),'characters')
         tree = json.loads(data)
         results = tree['results']
         try:
@@ -71,12 +70,10 @@ class Application(tk.Frame):
             return 361,361
         return lat,lon
     def update(self,event=None):
-        print "Updated"
         self.print_on_map()
     def print_on_map(self,event=None):
         x=self.winfo_width()
         y=self.winfo_height()
-        print x,y
         self.original=Image.fromarray(self.image)
         resized = self.original.resize((x-4, y-25),Image.ANTIALIAS)
         self.img = ImageTk.PhotoImage(resized)
