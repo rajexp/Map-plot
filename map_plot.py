@@ -33,7 +33,7 @@ class Application(tk.Frame):
         
         self.frame = tk.Frame(self)
         self.frame.pack(fill=tk.BOTH,expand=True)
-        self.image=cv2.imread('D:\World.jpg')
+        self.image=cv2.imread('World.jpg')
         self.original=Image.fromarray(self.image)
         resized = self.original.resize((ini_x,ini_y),Image.ANTIALIAS)
         self.img = ImageTk.PhotoImage(resized)
